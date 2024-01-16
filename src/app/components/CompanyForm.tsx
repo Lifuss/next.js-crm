@@ -2,6 +2,7 @@ import { Form, Formik } from 'formik';
 import React from 'react';
 import LogoUploader from './LogoUploader';
 import InputField from './InputField';
+import Button from './Button';
 
 export type CompanyFieldsValues = {
   name: string;
@@ -36,17 +37,27 @@ const CompanyForm = ({ onSubmit }: CompanyFormProps) => {
             <InputField label="Status" placeholder="Status" name="status" />
             <InputField label="Country" placeholder="Country" name="country" />
           </div>
+          <div className="flex flex-col flex-1 gap-5">
+            <InputField label="Name" placeholder="Name" name="name" />
+            <InputField
+              label="Category"
+              placeholder="Category"
+              name="category"
+            />
+            <InputField
+              label="Date"
+              placeholder="Date"
+              name="date"
+              type="date"
+            />
+            <InputField
+              label="Description"
+              placeholder="Description"
+              name="description"
+            />
+          </div>
         </div>
-        <div className="flex flex-col flex-1 gap-5">
-          <InputField label="Name" placeholder="Name" name="name" />
-          <InputField label="Category" placeholder="Category" name="category" />
-          <InputField label="Date" placeholder="Date" name="date" type="date" />
-          <InputField
-            label="Description"
-            placeholder="Description"
-            name="description"
-          />
-        </div>
+        <Button type="submit">Add company</Button>
       </Form>
     </Formik>
   );

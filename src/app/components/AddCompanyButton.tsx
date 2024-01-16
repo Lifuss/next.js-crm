@@ -3,8 +3,8 @@
 import React, { useState } from 'react';
 import Button from './Button';
 import dynamic from 'next/dynamic';
-// import CompanyFormModal from './CompanyFormModal';
 
+// dynamic render
 const CompanyFormModal = dynamic(() => import('./CompanyFormModal'), {
   ssr: false,
 });
@@ -15,7 +15,7 @@ const AddCompanyButton = () => {
     <>
       <Button onClick={() => setShow(true)}>Add company</Button>
       <CompanyFormModal
-        onSubmit={console.log()}
+        onSubmit={console.log}
         show={show}
         onClose={() => setShow(false)}
       />

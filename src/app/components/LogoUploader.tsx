@@ -1,16 +1,19 @@
 import Image from 'next/image';
 import React from 'react';
 
-interface Props
-  extends Partial<Omit<React.ReactHTMLElement<HTMLInputElement>, 'type'>> {
+export interface LogoUploaderProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
   label?: string;
-  placeholder?: string;
-  id?: string;
 }
 
-const LogoUploader = ({ label, placeholder, id, ...rest }: Props) => {
+const LogoUploader = ({
+  label,
+  placeholder,
+  id,
+  ...rest
+}: LogoUploaderProps) => {
   return (
-    <div className="flex gap-18 mb-3">
+    <div className="flex gap-10 mb-3">
       <label
         htmlFor={id}
         className="flex flex-col items-center justify-center w-40 h-40 bg-white border border-slate-900 border-dashed rounded-full"
