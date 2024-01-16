@@ -12,6 +12,7 @@ type Props = {
   children: React.ReactNode;
   status: Status;
 };
+console.log(process.env.CRM_SECRET_KEY);
 
 const StatusLabels = ({ children, status }: Props) => {
   return (
