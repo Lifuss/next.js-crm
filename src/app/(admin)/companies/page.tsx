@@ -1,11 +1,11 @@
 import React from 'react';
-import Header from '../components/Header';
-import Toolbar from '../components/Toolbar';
-import SearchInput from '../components/SearchInput';
-import AddCompanyButton from '../components/AddCompanyButton';
-import CompanyTable from '../components/CompanyTable';
-import CompanyRow from '../components/CompanyRow';
-import { Status } from '../components/StatusLabels';
+import Header from '../../components/Header';
+import Toolbar from '../../components/Toolbar';
+import SearchInput from '../../components/SearchInput';
+import AddCompanyButton from '../../components/AddCompanyButton';
+import CompanyTable from '../../components/CompanyTable';
+import CompanyRow from '../../components/CompanyRow';
+import { Status } from '../../components/StatusLabels';
 
 type PageProps = {};
 
