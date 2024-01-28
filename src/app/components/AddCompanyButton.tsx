@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import Button from './Button';
 import dynamic from 'next/dynamic';
 
-// dynamic render
 const CompanyFormModal = dynamic(() => import('./CompanyFormModal'), {
   ssr: false,
 });
