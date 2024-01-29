@@ -1,42 +1,41 @@
 import React from 'react';
-import StatusLabels, { Status } from './StatusLabels';
 import Image from 'next/image';
 import clsx from 'clsx';
+import StatusLabels, { Status } from './StatusLabels';
 
-type CompanyRowProps = {
+export interface CompanyRowProps {
   id: number;
   category: string;
   company: string;
   status: Status;
-  promotion: string;
+  promotion: boolean;
   country: string;
-  joinedData: string;
-};
+  joinedDate: string;
+}
 
 const labelByStatus = {
   [Status.Active]: 'Active',
-  [Status.NotActive]: 'NotActive',
+  [Status.NotActive]: 'Not Active',
   [Status.Pending]: 'Pending',
   [Status.Suspended]: 'Suspended',
 };
 
-const CompanyRow = ({
+export default function CompanyRow({
   id,
   category,
   company,
   status,
   promotion,
   country,
-  joinedData,
-}: CompanyRowProps) => {
+  joinedDate,
+}: CompanyRowProps) {
   return (
-    <tr>
-      <td className="h-14 text-center text-gray-900 bg-white"></td>
+    <tr className="h-14 text-center text-gray-900 bg-white">
       <td className="text-xs font-medium text-blue-700 rounded-l border-l-4 border-blue-700">
         {category}
       </td>
       <td>
-        <a href={`/companies/${id}`}>company</a>
+        <a href={`/companies/${id}`}>{company}</a>
       </td>
       <td>
         <StatusLabels status={status}>{labelByStatus[status]}</StatusLabels>
@@ -55,16 +54,14 @@ const CompanyRow = ({
               promotion ? 'text-green-700' : 'text-red-700',
             )}
           >
-            {promotion ? 'yes' : 'no'}
+            {promotion ? 'Yes' : 'No'}
           </span>
         </div>
       </td>
       <td>{country}</td>
       <td className="rounded-r">
-        {new Date(joinedData).toLocaleDateString('uk-UA')}
+        {new Date(joinedDate).toLocaleDateString('uk-UA')}
       </td>
     </tr>
   );
-};
-
-export default CompanyRow;
+}

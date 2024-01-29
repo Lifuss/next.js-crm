@@ -7,11 +7,11 @@ type layoutProps = {
 
 const layout = ({ children }: layoutProps) => {
   console.log('rendering');
-  
+
   return (
     <>
       <Sidebar />
-      <div className="ml-60">{children}</div>
+      <main className="ml-60">{children}</main>
     </>
   );
 };
