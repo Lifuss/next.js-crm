@@ -12,7 +12,11 @@ export interface ModalProps {
 const Modal = ({ show, children, onClose }: ModalProps) => {
   return (
     <Transition.Root as={Fragment} show={show}>
-      <Dialog as="div" className="relative z-10" onClose={onClose}>
+      <Dialog
+        as="div"
+        className="fixed inset-0 z-50 flex items-center"
+        onClose={onClose}
+      >
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"

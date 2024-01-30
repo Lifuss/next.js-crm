@@ -1,10 +1,12 @@
-import { Form, Formik } from 'formik';
+'use client';
+
 import React from 'react';
+import { Form, Formik } from 'formik';
 import LogoUploader from './LogoUploader';
 import InputField from './InputField';
 import Button from './Button';
 
-export type CompanyFieldsValues = {
+export type CompanyFieldValues = {
   name: string;
   status: string;
   country: string;
@@ -13,7 +15,7 @@ export type CompanyFieldsValues = {
   description: string;
 };
 
-const initialValues: CompanyFieldsValues = {
+const initialValues: CompanyFieldValues = {
   name: '',
   status: '',
   country: '',
@@ -23,10 +25,10 @@ const initialValues: CompanyFieldsValues = {
 };
 
 export interface CompanyFormProps {
-  onSubmit: (values: CompanyFieldsValues) => void | Promise<void>;
+  onSubmit: (values: CompanyFieldValues) => void | Promise<void>;
 }
 
-const CompanyForm = ({ onSubmit }: CompanyFormProps) => {
+export default function CompanyForm({ onSubmit }: CompanyFormProps) {
   return (
     <Formik initialValues={initialValues} onSubmit={onSubmit}>
       <Form className="flex flex-col gap-10">
@@ -44,12 +46,7 @@ const CompanyForm = ({ onSubmit }: CompanyFormProps) => {
               placeholder="Category"
               name="category"
             />
-            <InputField
-              label="Date"
-              placeholder="Date"
-              name="date"
-              type="date"
-            />
+            <InputField label="Joined date" type="date" name="date" />
             <InputField
               label="Description"
               placeholder="Description"
@@ -61,6 +58,4 @@ const CompanyForm = ({ onSubmit }: CompanyFormProps) => {
       </Form>
     </Formik>
   );
-};
-
-export default CompanyForm;
+}
