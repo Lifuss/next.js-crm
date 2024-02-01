@@ -1,10 +1,10 @@
 import StatCard, { StatCardType } from '@/app/components/stat-card';
-import { getSummaryStats } from '@/lib/api';
+import { SummaryStats, getSummaryStats } from '@/lib/api';
 import React from 'react';
 
 export interface PageProps {}
 
-const labelByStat = {
+const labelByStat: Record<keyof SummaryStats, string> = {
   promotions: 'Total promotions',
   categories: 'Total categories',
   newCompanies: 'New companies',
@@ -12,7 +12,7 @@ const labelByStat = {
 };
 
 export default async function Page({}: PageProps) {
-  const data = await getSummaryStats();
+  const data = await getSummaryStats({ next: { revalidate: 5 } });
 
   return (
     <div className="grid grid-cols-12 gap-5">
@@ -21,7 +21,7 @@ export default async function Page({}: PageProps) {
           <StatCard
             type={StatCardType.Gradient}
             label={labelByStat[key]}
-            counter={data[key]}
+            counter={Number(data[key])}
           />
         </div>
       ))}

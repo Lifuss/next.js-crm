@@ -64,6 +64,7 @@ const stringifyQueryParams = (params: Record<string, string>) =>
 const SendRequest = async <T>(url: string, init?: RequestInit) => {
   const res = await fetch(url, init);
   if (!res.ok) {
+    console.log(res);
     throw new Error(await res.text());
   }
 
@@ -71,5 +72,34 @@ const SendRequest = async <T>(url: string, init?: RequestInit) => {
 };
 
 export const getSummaryStats = (init?: RequestInit) => {
-  return SendRequest<SummaryStats>;
+  return SendRequest<SummaryStats>(buildUrl('summary-stats', '1'), init);
+};
+
+export const getSummarySales = (init?: RequestInit) => {
+  return SendRequest<SummarySales[]>(buildUrl('summary-sales'), init);
+};
+
+export const getCountries = (init?: RequestInit) => {
+  return SendRequest<Country[]>(buildUrl('countries'), init);
+};
+
+export const getCategories = (init?: RequestInit) => {
+  return SendRequest<Category[]>(buildUrl('categories'), init);
+};
+
+export const getCompanies = (init?: RequestInit) => {
+  return SendRequest<Company[]>(buildUrl('companies'), init);
+};
+
+export const getCompany = (id: string, init?: RequestInit) => {
+  return SendRequest<Company>(buildUrl('companies', id), init);
+};
+
+export const getPromotions = async (
+  params: Record<string, string> = {},
+  init?: RequestInit,
+) => {
+  return SendRequest<Promotions[]>(
+    `${buildUrl('promotions')}?${stringifyQueryParams(params)}`,
+  );
 };
