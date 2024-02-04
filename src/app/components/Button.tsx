@@ -1,13 +1,14 @@
 'use client';
 
-import clsx from 'clsx';
 import React from 'react';
+import clsx from 'clsx';
 
-interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
 }
 
-const Button = ({ disabled, ...rest }: Props) => {
+export default function Button({ disabled, ...rest }: ButtonProps) {
   return (
     <button
       {...rest}
@@ -18,6 +19,4 @@ const Button = ({ disabled, ...rest }: Props) => {
       )}
     />
   );
-};
-
-export default Button;
+}

@@ -1,9 +1,9 @@
-import clsx from 'clsx';
-import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import clsx from 'clsx';
 
-interface SidebarItemProps {
+export interface SidebarItemProps {
   current?: boolean;
   pathname: string;
   src: string;
@@ -11,7 +11,7 @@ interface SidebarItemProps {
   children: React.ReactNode;
 }
 
-function SidebarItem({
+export default function SidebarItem({
   current,
   pathname,
   src,
@@ -28,17 +28,9 @@ function SidebarItem({
             'after:h-full after:ml-auto after:border-2 after:border-purple-200 after:rounded-sm',
         )}
       >
-        <Image
-          src={src}
-          alt={alt}
-          className="ml-5"
-          width={18}
-          height={18}
-        ></Image>
-        <span className="text-medium text-zinc-50">{children}</span>
+        <Image className="ml-5" width={18} height={18} src={src} alt={alt} />
+        <span className="font-medium text-zinc-50">{children}</span>
       </Link>
     </li>
   );
 }
-
-export default SidebarItem;

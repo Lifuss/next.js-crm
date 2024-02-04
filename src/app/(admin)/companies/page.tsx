@@ -1,6 +1,6 @@
-import CompanyRow from '@/app/components/CompanyRow';
-import CompanyTable from '@/app/components/CompanyTable';
-import { Status } from '@/app/components/StatusLabels';
+import CompanyRow from '@/app/components/company-row';
+import CompanyTable from '@/app/components/company-table';
+import { CompanyStatus } from '@/lib/api';
 import React from 'react';
 
 export interface PageProps {}
@@ -12,7 +12,7 @@ export default function Page({}: PageProps) {
         id={1}
         category="Products"
         company="Costco"
-        status={Status.Pending}
+        status={CompanyStatus.Pending}
         promotion={true}
         country="USA"
         joinedDate="02.19.2023"
