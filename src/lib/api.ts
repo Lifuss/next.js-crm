@@ -64,7 +64,6 @@ const stringifyQueryParams = (params: Record<string, string>) =>
 const SendRequest = async <T>(url: string, init?: RequestInit) => {
   const res = await fetch(url, init);
   if (!res.ok) {
-    console.log(res);
     throw new Error(await res.text());
   }
 

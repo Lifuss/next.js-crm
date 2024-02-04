@@ -1,7 +1,7 @@
-import AddCompanyButton from '@/app/components/AddCompanyButton';
-import SearchInput from '@/app/components/SearchInput';
-import Toolbar from '@/app/components/Toolbar';
 import React from 'react';
+import Toolbar from '@/app/components/Toolbar';
+import SearchInput from '@/app/components/search-input';
+import AddCompanyButton from '@/app/components/add-company-button';
 
 export interface PageProps {}
 

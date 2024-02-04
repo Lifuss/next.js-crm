@@ -1,9 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import clsx from 'clsx';
-
-import DashboardCard from '@/app/components/DashboardCard';
 import { getCompanies, getCountries } from '@/lib/api';
+import DashboardCard from '@/app/components/dashboard-card';
 import getCountById from '@/lib/service/getCountById';
 
 export interface PageProps {}
